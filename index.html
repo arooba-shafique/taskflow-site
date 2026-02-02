@@ -21,19 +21,53 @@
 </head>
 <body class="bg-[#0f172a] text-white font-sans">
 
-  <header class="fixed top-0 left-0 w-full z-50 bg-[#0f172a]/80 backdrop-blur-md">
-    <nav class="container mx-auto flex items-center justify-between p-4">
-      <a href="#hero" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
-        TaskFlow
-      </a>
-      <ul class="flex space-x-6">
-        <li><a href="#features" class="hover:text-indigo-400 transition">Features</a></li>
-        <li><a href="#pricing" class="hover:text-indigo-400 transition">Pricing</a></li>
-        <li><a href="#testimonials" class="hover:text-indigo-400 transition">Testimonials</a></li>
-        <li><a href="#contact" class="hover:text-indigo-400 transition">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header class="fixed top-0 left-0 w-full z-50 bg-[#0f172a]/80 backdrop-blur-md">
+  <nav class="container mx-auto flex items-center justify-between p-4">
+    <a href="#hero" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+      TaskFlow
+    </a>
+
+    <!-- Hamburger for mobile -->
+    <div class="md:hidden">
+      <button id="menuBtn" class="text-white text-3xl focus:outline-none">
+        <i class='bx bx-menu'></i>
+      </button>
+    </div>
+
+    <!-- Menu links -->
+    <ul id="menu" class="hidden md:flex space-x-6">
+      <li><a href="#features" class="hover:text-indigo-400 transition">Features</a></li>
+      <li><a href="#pricing" class="hover:text-indigo-400 transition">Pricing</a></li>
+      <li><a href="#testimonials" class="hover:text-indigo-400 transition">Testimonials</a></li>
+      <li><a href="#contact" class="hover:text-indigo-400 transition">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile menu dropdown -->
+  <ul id="mobileMenu" class="hidden flex-col bg-[#0f172a]/95 backdrop-blur-md text-center space-y-4 py-4 md:hidden">
+    <li><a href="#features" class="block hover:text-indigo-400 transition">Features</a></li>
+    <li><a href="#pricing" class="block hover:text-indigo-400 transition">Pricing</a></li>
+    <li><a href="#testimonials" class="block hover:text-indigo-400 transition">Testimonials</a></li>
+    <li><a href="#contact" class="block hover:text-indigo-400 transition">Contact</a></li>
+  </ul>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Optional: Close mobile menu when clicking a link
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
+
 
   <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-r from-[#0f172a] to-[#1e1b4b]">
     <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
